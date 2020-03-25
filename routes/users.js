@@ -6,8 +6,8 @@ const crypto = require('crypto');
 const User = require("../models/user");
 
 router.post("/", async (req, res) => {
-  // Create user and save to db
-
+  
+// Create user and save to db
   let userToBeCreated = new User({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
