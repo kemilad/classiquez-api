@@ -1,6 +1,6 @@
 
 function downloadurl(req, res, next) {
-    console.log("Sending email to user...");
+    console.log("Sending downloadable url to user...");
     next();
   }
   
