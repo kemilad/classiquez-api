@@ -10,7 +10,7 @@ ClassiqueZ is a shopping cart api that includes movies, songs like kind of enter
     2. Run this command for build this application > docker build -t <tag_name> .
     3. Then run this command for run this application > docker run -p 5000:5000 <tag_name>:latest
 
-## Mannual Installation
+## Manual Installation
 
 1. npm install
 2. Add .env file and update your credentials according to this application.
