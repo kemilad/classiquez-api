@@ -4,6 +4,8 @@ const router = express.Router();
 
 const User = require("../models/user");
 const jwtSecret = require('./verifyJwtToken');
+const crypto = require('crypto');
+
 
 router.post("/", async (req, res) => {
   // Compare passwords and see if person is authenticated
@@ -12,7 +14,7 @@ router.post("/", async (req, res) => {
     return res.status(400).send("Invalid login credentials");
   }
 
-  let isPwValid = user.password === req.body.password;
+  let isPwValid = user.password === crypto.createHash('md5').update(req.body.password).digest("hex");
   if (!isPwValid) {
     return res.status("400").send("Invalid login credentials");
   }

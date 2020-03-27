@@ -2,8 +2,7 @@ const mongoose = require("mongoose");
 
 const cartSchema = new mongoose.Schema({
   cartNumber: {
-    type: String,
-    required: true
+    type: String
   },  
   contactName: {
     type: String,

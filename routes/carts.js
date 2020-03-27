@@ -30,9 +30,7 @@ router.post("/", async (req, res) => {
       let cartToAdd = new Cart({
         contactName: req.body.contactName,
         contactNumber: req.body.contactNumber,
-        favCount: req.body.favCount,
-        deceased: req.body.deceased,
-        downloadableUrl: req.body.downloadableUrl
+        favCount: req.body.favCount
       });
   
       cartToAdd = await cartToAdd.save();

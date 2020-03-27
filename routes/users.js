@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
     lastName: req.body.lastName,
     email: req.body.email,
     dob: req.body.dob,
-    password: crypto.createHash('md5').update(request.body.Password).digest("hex")
+    password: crypto.createHash('md5').update(req.body.password).digest("hex")
   });
 
   await userToBeCreated.save();
@@ -22,6 +22,15 @@ router.post("/", async (req, res) => {
     firstName: userToBeCreated.firstName,
     email: userToBeCreated.email
   });
+});
+
+router.get("/", async (req, res) => {
+  try {
+    let users = await User.find();
+    res.send(users);
+  } catch (ex) {
+    return res.status(500).send(ex.message);
+  }
 });
 
 module.exports = router;
