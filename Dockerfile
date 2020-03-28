@@ -2,13 +2,11 @@ FROM node:10.15.3
 
 ENV NODE VERSION 10.15.3
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY package*.json ./
 
 RUN npm install
-
-RUN npm start
 
 COPY . .
 
