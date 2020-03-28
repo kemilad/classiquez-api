@@ -15,4 +15,10 @@ ClassiqueZ is a shopping cart api that includes movies, songs like kind of enter
 1. npm install
 2. Add .env file and update your credentials according to this application.
 3. npm start
+<<<<<<< HEAD
 4. Then, the application will start and running successfully!
+=======
+4. Then, the application will start and running successfully!
+
+
+>>>>>>> kemila_user_backend
