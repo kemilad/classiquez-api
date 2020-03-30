@@ -2,6 +2,8 @@
 
 ClassiqueZ is a shopping cart api that includes movies, songs like kind of entertainment online shopping items. In this api includes consumer api and the admin api. We have developed this api for the React Application which is in this repo > https://bit.ly/33SAFyz
 
+And I've deployed this application on heroku; here's the URL: https://classiquez-api.herokuapp.com/
+
 ## Notes:
 
 - We have containerized this application by using Docker.
