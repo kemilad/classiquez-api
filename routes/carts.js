@@ -22,10 +22,6 @@ router.post("/", async (req, res) => {
       return res.status(400).send("Invalid token");
     }
   
-    if (!req.body.name) {
-      return res.status(400).send("Please check request again!");
-    }
-  
     try {
       let cartToAdd = new Cart({
         contactName: req.body.contactName,
