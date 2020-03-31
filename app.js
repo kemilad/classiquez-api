@@ -1,41 +1,29 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const authenticate = require("./middleware/authenticator");
-const downloadurl = require("./middleware/downloadableurl");
-const carts = require("./routes/carts");
-const users = require("./routes/users");
-const authUser = require("./routes/authUser");
-const home = require("./routes/home");
-require("dotenv").config();
+const express = require('express');
+const cors = require('cors');
+const connectDB = require('./DbCon/connection');
 
-
-const PORT = process.env.PORT;
+const authentication = require('./middleware/authenticator');
+const auth = require('./route/authentication');
+const admin = require('./route/admin');
+const movie = require('./route/movie');
+const song = require('./route/song');
+const book = require('./route/book');
+require('dotenv').config();
 
 const app = express();
+connectDB();
+const port = process.env.PORT;
+
+console.log(`Listening on Port ${port}`);
 
 app.use(cors());
+
 app.use(express.json());
-app.use(downloadurl);
-app.use(authenticate);
-app.use("/", home);
-app.use("/api/carts", carts); // custom middleware
-app.use("/api/users", users);
-app.use("/api/auth", authUser);
-
-mongoose
-  .connect(
-    "mongodb+srv://dbUser:dbUser@cluster0-qxgqi.mongodb.net/test?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    }
-  )
-  .then(() => console.log("Connected to db successfully"))
-  .catch(ex => console.log(ex));
-
-app.listen(PORT, () => {
-  console.log(`Listening on Port ${PORT}`);
-});
+app.use(authentication);
+app.use("/api/auth", auth);
+app.use("/api/movie", movie);
+app.use("/api/song", song);
+app.use("/api/book", book);
 
 
+app.listen(port, () => console.log('server started'));
